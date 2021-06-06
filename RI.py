@@ -72,81 +72,81 @@ def main():
     option = int(input("Digite a opção: "))
 
     if(option == 1 or option == 2):
-        # config_ground_truth()
-        # config_query_options()
+        config_ground_truth()
+        config_query_options()
         pre_processing(option)
     else:
         print('Opção inválida')
     
     return
 
-# def config_ground_truth():
-#     file_folder = 'FIRE2010/en.qrels.76-125.2010.txt'
-#     file = open(file_folder, "r")
+def config_ground_truth():
+    file_folder = 'FIRE2010/en.qrels.76-125.2010.txt'
+    file = open(file_folder, "r")
 
-#     id = None
-#     doc_name = None
-#     is_relevant = None
-#     ground_truths = []
+    id = None
+    doc_name = None
+    is_relevant = None
+    ground_truths = []
 
 
-#     lines = file.readlines()
-#     print(lines[0], "LAL")
+    lines = file.readlines()
+    print(lines[0], "LAL")
 
-#     for line in lines:
-#         line_separated = line.split()
+    for line in lines:
+        line_separated = line.split()
 
-#         id = line_separated[0]
-#         doc_name = line_separated[2]
-#         is_relevant = line_separated[3]
+        id = line_separated[0]
+        doc_name = line_separated[2]
+        is_relevant = line_separated[3]
 
-#         ground_truth = GroundTruth(id, doc_name, is_relevant)
-#         ground_truths.append(ground_truth)
+        ground_truth = GroundTruth(id, doc_name, is_relevant)
+        ground_truths.append(ground_truth)
 
-#         #print("linha separada", line_separated)
+        #print("linha separada", line_separated)
          
-#         #print("ID: ", id, "doc_name: ", doc_name, "is_relevant: ", is_relevant)
+        #print("ID: ", id, "doc_name: ", doc_name, "is_relevant: ", is_relevant)
     
-#     #print(ground_truths[0].id)
+    #print(ground_truths[0].id)
 
-# def config_query_options():
-#     file_folder = 'FIRE2010/en.topics.76-125.2010.txt'
-#     file = open(file_folder, "r")
+def config_query_options():
+    file_folder = 'FIRE2010/en.topics.76-125.2010.txt'
+    file = open(file_folder, "r")
 
-#     lang = None
-#     num = None
-#     title = None
-#     desc = None
-#     narr = None
-#     queries = []
+    lang = None
+    num = None
+    title = None
+    desc = None
+    narr = None
+    queries = []
 
-#     lines = file.readlines()
-#     #print(lines, "OPA")
+    lines = file.readlines()
+    #print(lines, "OPA")
 
-#     for line in lines:
-#         line_separated = line.split()
+    for line in lines:
+        line_separated = line.split()
 
-#         if("<top" in line_separated):
-#             print(line_separated[1])
+        if("<top" in line_separated):
+            print(line_separated[1])
         
-#         if("<num>" in line_separated):
-#             print(line_separated[0])
+        if("<num>" in line_separated):
+            print(line_separated[0])
         
-#         if("<title>" in line_separated):
-#             print(line_separated[0])
+        if("<title>" in line_separated):
+            print(line_separated[0])
         
-#         if("<desc>" in line_separated):
-#             print("a")
+        if("<desc>" in line_separated):
+            print("a")
 
-#         if("<narr>" in line_separated):
-#             print("a")
+        if("<narr>" in line_separated):
+            print("a")
         
-#         # if(len(line_separated) < 0):
-#         #     #query = Query(lang, num, title, desc, narr)
-#         #     #queries.append(query)
+        # if(len(line_separated) < 0):
+        #     #query = Query(lang, num, title, desc, narr)
+        #     #queries.append(query)
             
 
-#         print("linha separada", line_separated)
+        print("linha separada", line_separated)
 
 def remove_special_characters(text):
     regex = re.compile('[^a-zA-Z0-9\s]')
@@ -172,7 +172,7 @@ def pre_processing(option):
         print(file)
         filename = file
         file = open(file, "r")
-        text = file.read()    
+        text = file.read()
         text = remove_special_characters(text)
         words = word_tokenize(text)
         words = [word.lower() for word in words]
