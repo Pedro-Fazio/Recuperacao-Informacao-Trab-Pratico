@@ -16,4 +16,3 @@ Link para base de dados utilizada:
 
 Link para código fonte:
 	https://github.com/Pedro-Fazio/Recuperacao-Informacao-Trabalho-Pratico/blob/80d52bc316d1a903db8cfbbf044e126ad6c789d4/src/Models.ipynb
-	Só mais uma coisa, qual a diferença dos dois templates visio pista e visio checkout?
