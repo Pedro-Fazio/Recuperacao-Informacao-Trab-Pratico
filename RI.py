@@ -258,7 +258,10 @@ def answer(words_in_doc, query, linked_list_data, N):
         common_words = intersection(query, words)
         score = 0
         for ki in common_words:
-            score += math.log10((N+0.5)/(linked_list_data[ki].n_docs+0.5))
+            if linked_list_data[ki].n_docs > N/2:
+                score += math.log10((N+0.5)/(linked_list_data[ki].n_docs+0.5))
+            else:
+                score += math.log10((N-linked_list_data[ki].n_docs+0.5)/(linked_list_data[ki].n_docs+0.5))
         answer[doc] = score
     print('answer: ', answer)
 
